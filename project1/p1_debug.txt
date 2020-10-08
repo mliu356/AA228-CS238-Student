@@ -1,0 +1,10 @@
+BEST SMALL.CSV
+
+10 restarts, num parents = 2, 10.862 seconds for this trial, total time: 106.381 seconds
+[('portembarked', 'passengerclass'), ('fare', 'passengerclass'), ('fare', 'sex'), ('numparentschildren', 'sex'), ('numparentschildren', 'numsiblings'), ('passengerclass', 'survived'), ('sex', 'survived')]
+-3870.4381803694023
+
+ran with 5 random restarts, max_parents = 2
+[('age', 'numsiblings'), ('portembarked', 'passengerclass'), ('fare', 'passengerclass'), ('passengerclass', 'survived'), ('passengerclass', 'sex'), ('sex', 'survived')]
+-3908.003872385959
+
