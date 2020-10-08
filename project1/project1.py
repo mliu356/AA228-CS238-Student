@@ -15,32 +15,31 @@ def write_gph(dag, filename):
 
 
 def process(graph: nx.Graph, data: pd.DataFrame):
-    values = {} # node -> {values}
+    num_values = {} # node -> # values it can take, aka r
     parents = {} # node -> [parents]
     for node in graph.nodes():
-        values[node] = sorted(data[node].unique().tolist())
+        num_values[node] = max(data[node])
         parents[node] = []
     for edge in graph.edges():
         parent, child = edge
         parents[child] += [parent]
-    return values, parents
+    return num_values, parents
 
-def get_ijk_value(index: str, row: pd.Series, values: {}, parents: {}, nodes_list: []):
+def get_ijk_value(index: str, row: pd.Series, num_values: {}, parents: {}, nodes_list: []):
     curr_var = nodes_list[index]
     x_parents = parents[curr_var].copy()
-    x_parents_vals = [row.iloc[nodes_list.index(parent)] for parent in x_parents]
-    x_parents_indices = [values[x_parents[i]].index(x_parents_vals[i]) for i in range(len(x_parents))]
-    x_parents_dims = [len(values[parent]) for parent in x_parents]
+    x_parents_indices = [row.iloc[nodes_list.index(parent)] - 1 for parent in x_parents]
+    x_parents_dims = [num_values[parent] for parent in x_parents]
     # print("parents", x_parents)
     # print("parent dims", x_parents_dims)
     # print("parent vals", x_parents_vals)
     # print("parent inds", x_parents_indices)
     j = (np.ravel_multi_index(x_parents_indices, x_parents_dims) if len(x_parents) > 0 else 0)
-    k = values[curr_var].index(row.iloc[index])
+    k = row.iloc[index] - 1
     return index, j, k
 
 def bayesian_score(graph: nx.Graph, data: pd.DataFrame):
-    values, parents = process(graph, data)
+    num_values, parents = process(graph, data)
     nodes = list(graph.nodes)
 
     # * instantiate empty counts : list of 2d arrays
@@ -49,17 +48,17 @@ def bayesian_score(graph: nx.Graph, data: pd.DataFrame):
         curr_var = nodes[index]
         q = 1
         for parent in parents:
-            q *= len(values[parent])
+            q *= num_values[parent]
         counts[index] = [None] * q
         for i in range(len(counts[index])):
-            counts[index][i] = [0] * len(values[curr_var])
+            counts[index][i] = [0] * num_values[curr_var]
 
     # * iterate through data to populate the counts
     for row in data.iterrows():
         # print(row)
         data_tuple = row[1]
         for index in range(len(data_tuple)): # 0 -> n - 1
-            i, j, k = get_ijk_value(index, data_tuple, values, parents, nodes)
+            i, j, k = get_ijk_value(index, data_tuple, num_values, parents, nodes)
             # print(i, j, k)
             # print(counts)
             counts[i][j][k] += 1
@@ -78,8 +77,7 @@ def bayesian_score(graph: nx.Graph, data: pd.DataFrame):
                 p -= loggamma(1)
     return p
 
-# todo: implement simulated annealing?
-def find_graph_given_data(graph: nx.Graph, data: pd.DataFrame, max_parents=2): # returns nx.Graph with optimal graph
+def find_graph_given_data(graph: nx.Graph, data: pd.DataFrame, max_parents=2):
     ordering = list(graph.nodes)
     random.shuffle(ordering)
     best_score = None
@@ -164,7 +162,9 @@ def main():
     # inputfilename = sys.argv[1]
     # outputfilename = sys.argv[2]
     # compute(inputfilename, outputfilename)
-    compute("data/small.csv", "small.gph", restarts=5, max_parents=3)
+    
+    # compute("data/small.csv", "small.gph", restarts=1, max_parents=2)
+    compute("example/example.csv", "test.gph", restarts=2, max_parents=2)
 
 
 if __name__ == '__main__':

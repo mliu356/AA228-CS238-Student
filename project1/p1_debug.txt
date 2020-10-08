@@ -8,3 +8,8 @@ ran with 5 random restarts, max_parents = 2
 [('age', 'numsiblings'), ('portembarked', 'passengerclass'), ('fare', 'passengerclass'), ('passengerclass', 'survived'), ('passengerclass', 'sex'), ('sex', 'survived')]
 -3908.003872385959
 
+EXAMPLE.CSV
+
+[('parent1', 'child1'), ('parent1', 'parent3'), ('child1', 'parent3'), ('child2', 'child3')]
+-127.17677057683706
+best graph time ('trial 0', 0.782) total ('total', 1.433)
