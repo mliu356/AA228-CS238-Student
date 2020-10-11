@@ -178,7 +178,7 @@ def compute(infile, outfile, restarts=1, max_parents=2):
     print("edges: " + str(graph.edges()))
 
     # * calculate bayesian score
-    score, _ = bayesian_score(graph, data)
+    score, counts = bayesian_score(graph, data)
     print("starting score: " + str(score))
 
     # * find best graph representation
@@ -214,8 +214,8 @@ def main():
     # outputfilename = sys.argv[2]
     # compute(inputfilename, outputfilename)
     
-    compute("data/medium.csv", "medium.gph", restarts=5, max_parents=None)
-    # compute("data/large.csv", "large.gph", restarts=1, max_parents=2)
+    # compute("data/medium.csv", "medium.gph", restarts=5, max_parents=None)
+    compute("data/large.csv", "large.gph", restarts=1, max_parents=2)
     # compute("example/example.csv", "test.gph", restarts=1, max_parents=2)
 
 

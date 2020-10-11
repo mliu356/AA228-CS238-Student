@@ -1,4 +1,42 @@
-BEST SMALL.CSV
+LARGE.CSV -> -450,000
+max = 2
+[('N1', 'N21'), ('N1', 'N49'), ('N1', 'N17'), ('N1', 'N5'), ('N1', 'N18'), ('N1', 'N14'), ('N1', 'N35'), ('N4', 'N5'), ('N4', 'N12'), ('N4', 'N9'), ('N14', 'N28'), ('N14', 'N7'), ('N14', 'N33'), ('N15', 'N18'), ('N15', 'N14'), ('N15', 'N7'), ('N17', 'N15'), ('N17', 'N27'), ('N49', 'N17'), ('N49', 'N15'), ('N10', 'N24'), ('N34', 'N37'), ('N34', 'N6'), ('N11', 'N34'), ('N11', 'N16'), ('N11', 'N6'), ('N11', 'N46'), ('N16', 'N19'), ('N27', 'N16'), ('N31', 'N19'), ('N32', 'N31'), ('N32', 'N39'), ('N40', 'N32'), ('N40', 'N27'), ('N5', 'N13'), ('N5', 'N28'), ('N5', 'N9'), ('N5', 'N20'), ('N5', 'N8'), ('N5', 'N2'), ('N12', 'N2'), ('N47', 'N4'), ('N47', 'N12'), ('N9', 'N38'), ('N13', 'N43'), ('N13', 'N24'), ('N21', 'N11'), ('N21', 'N45'), ('N21', 'N41'), ('N21', 'N37'), ('N21', 'N13'), ('N37', 'N39'), ('N37', 'N44'), ('N45', 'N41'), ('N45', 'N44'), ('N18', 'N46'), ('N29', 'N36'), ('N29', 'N21'), ('N29', 'N42'), ('N29', 'N11'), ('N36', 'N42'), ('N36', 'N43'), ('N43', 'N8'), ('N20', 'N38'), ('N20', 'N22'), ('N22', 'N30'), ('N23', 'N26'), ('N38', 'N22'), ('N38', 'N30'), ('N28', 'N20'), ('N50', 'N4'), ('N25', 'N10')]
+-458818.516951521
+best graph time ('trial 0', 1673.331)
+
+max = None
+-441983.0057107596
+best graph time ('trial 0', 3512.208)
+[('N1', 'N49'), ('N1', 'N14'), ('N1', 'N3'), ('N1', 'N15'), ('N1', 'N2'), ('N1', 'N8'), ('N1', 'N35'), ('N1', 'N46'), ('N1', 'N10'), ('N1', 'N18'), ('N1', 'N9'), ('N2', 'N12'), ('N3', 'N40'), ('N3', 'N5'), ('N3', 'N30'), ('N3', 'N32'), ('N3', 'N23'), ('N3', 'N50'), ('N6', 'N17'), ('N6', 'N24'), ('N6', 'N11'), ('N6', 'N29'), ('N6', 'N14'), ('N6', 'N3'), ('N6', 'N7'), ('N6', 'N2'), ('N6', 'N8'), ('N6', 'N10'), ('N6', 'N9'), ('N7', 'N15'), ('N7', 'N41'), ('N7', 'N2'), ('N7', 'N37'), ('N7', 'N10'), ('N7', 'N13'), ('N7', 'N43'), ('N14', 'N7'), ('N14', 'N15'), ('N14', 'N32'), ('N14', 'N33'), ('N14', 'N26'), ('N14', 'N28'), ('N15', 'N46'), ('N15', 'N18'), ('N15', 'N25'), ('N17', 'N49'), ('N17', 'N14'), ('N17', 'N15'), ('N17', 'N27'), ('N49', 'N15'), ('N10', 'N23'), ('N10', 'N13'), ('N10', 'N25'), ('N34', 'N44'), ('N34', 'N37'), ('N34', 'N21'), ('N11', 'N16'), ('N11', 'N46'), ('N11', 'N25'), ('N16', 'N27'), ('N16', 'N30'), ('N16', 'N31'), ('N16', 'N21'), ('N16', 'N23'), ('N16', 'N19'), ('N16', 'N39'), ('N27', 'N32'), ('N31', 'N19'), ('N32', 'N31'), ('N32', 'N39'), ('N40', 'N27'), ('N40', 'N32'), ('N5', 'N8'), ('N5', 'N46'), ('N5', 'N12'), ('N5', 'N18'), ('N5', 'N9'), ('N5', 'N20'), ('N5', 'N28'), ('N5', 'N39'), ('N12', 'N9'), ('N12', 'N50'), ('N12', 'N28'), ('N41', 'N37'), ('N41', 'N46'), ('N47', 'N12'), ('N8', 'N43'), ('N9', 'N26'), ('N13', 'N43'), ('N24', 'N30'), ('N24', 'N10'), ('N24', 'N13'), ('N21', 'N19'), ('N37', 'N21'), ('N37', 'N39'), ('N44', 'N7'), ('N44', 'N41'), ('N44', 'N45'), ('N44', 'N37'), ('N18', 'N13'), ('N29', 'N42'), ('N29', 'N36'), ('N36', 'N43'), ('N42', 'N36'), ('N20', 'N28'), ('N20', 'N13'), ('N20', 'N25'), ('N22', 'N38'), ('N22', 'N23'), ('N22', 'N9'), ('N22', 'N20'), ('N23', 'N26'), ('N30', 'N38'), ('N30', 'N23'), ('N30', 'N50')]
+
+BEST MEDIUM.CSV -> -42,000
+
+no max parents
+[('fixedacidity', 'totalsulfurdioxide'), ('fixedacidity', 'ph'), ('fixedacidity', 'citricacid'), ('volatileacidity', 'alcohol'), ('volatileacidity', 'quality'), ('chlorides', 'alcohol'), ('chlorides', 'citricacid'), ('density', 'alcohol'), ('density', 'totalsulfurdioxide'), ('density', 'residualsugar'), ('density', 'citricacid'), ('sulphates', 'alcohol'), ('alcohol', 'ph'), ('alcohol', 'quality')]
+-42402.930379288344
+best graph time ('trial 0', 37.251)
+
+[('volatileacidity', 'alcohol'), ('volatileacidity', 'quality'), ('totalsulfurdioxide', 'freesulfurdioxide'), ('totalsulfurdioxide', 'alcohol'), ('totalsulfurdioxide', 'sulphates'), ('density', 'residualsugar'), ('alcohol', 'density'), ('alcohol', 'quality')]
+-42489.94664158875
+best graph time ('trial 0', 26.083)
+max 2 parents
+
+[('volatileacidity', 'quality'), ('residualsugar', 'volatileacidity'), ('residualsugar', 'density'), ('totalsulfurdioxide', 'residualsugar'), ('totalsulfurdioxide', 'freesulfurdioxide'), ('totalsulfurdioxide', 'quality'), ('totalsulfurdioxide', 'density'), ('totalsulfurdioxide', 'sulphates'), ('density', 'alcohol'), ('quality', 'alcohol')]
+-42804.44712045219
+best graph time ('trial 4', 27.0)
+
+[('citricacid', 'fixedacidity'), ('freesulfurdioxide', 'totalsulfurdioxide'), ('density', 'totalsulfurdioxide'), ('ph', 'fixedacidity'), ('alcohol', 'sulphates'), ('alcohol', 'ph'), ('alcohol', 'density'), ('alcohol', 'volatileacidity'), ('alcohol', 'totalsulfurdioxide'), ('quality', 'volatileacidity')]
+-43760.48036161642
+best graph time ('trial 0', 34.116)
+
+first medium piazza submission: -43296.545660627744
+
+BEST SMALL.CSV -> -3,800
+
+max parents = None
+[('portembarked', 'passengerclass'), ('numparentschildren', 'age'), ('sex', 'numparentschildren'), ('sex', 'survived'), ('sex', 'passengerclass'), ('numsiblings', 'portembarked'), ('numsiblings', 'numparentschildren'), ('numsiblings', 'survived'), ('numsiblings', 'age'), ('survived', 'passengerclass')]
+-3865.5183290456616
+best graph time ('trial 7', 2.258)
 
 10 restarts, num parents = 2, 10.862 seconds for this trial, total time: 106.381 seconds
 [('portembarked', 'passengerclass'), ('fare', 'passengerclass'), ('fare', 'sex'), ('numparentschildren', 'sex'), ('numparentschildren', 'numsiblings'), ('passengerclass', 'survived'), ('sex', 'survived')]
@@ -13,3 +51,13 @@ EXAMPLE.CSV
 [('parent1', 'child1'), ('parent1', 'parent3'), ('child1', 'parent3'), ('child2', 'child3')]
 -127.17677057683706
 best graph time ('trial 0', 0.782) total ('total', 1.433)
+
+BALLPARKS
+Ballparks:
+small: -3,800
+medium: -42,000
+large: -450,000
+
+Example:
+With specified edges should be: −132.02
+Small unconnected should be: -4166.2258

@@ -166,6 +166,7 @@ def compute(infile, outfile, restarts=1, max_parents=2):
     graph.add_nodes_from(var_names)
     # graph.add_edges_from([('parent1', 'child1'), ('parent2', 'child2'), ('parent3', 'child3')])
     # graph.add_edges_from([('portembarked', 'passengerclass'), ('fare', 'passengerclass'), ('fare', 'sex'), ('numparentschildren', 'sex'), ('numparentschildren', 'numsiblings'), ('passengerclass', 'survived'), ('sex', 'survived')])
+    graph.add_edges_from()
 
     # dummy test data A -> B <- C (example from video)
     # graph = nx.DiGraph()
@@ -178,31 +179,38 @@ def compute(infile, outfile, restarts=1, max_parents=2):
     print("edges: " + str(graph.edges()))
 
     # * calculate bayesian score
-    score, _ = bayesian_score(graph, data)
+    score, counts = bayesian_score(graph, data)
     print("starting score: " + str(score))
 
     # * find best graph representation
-    best_graph, best_score = graph, None
-    best_trial = None
-    for i in range(restarts):
-        trial_start_time = time.time()
-        print("running attempt: " + str(i))
-        new_graph, new_score = find_graph_given_data(graph.copy(), data, max_parents=max_parents)
-        print("new graph:", new_graph.edges)
-        print("new score: " + str(new_score))
-        if best_score is None or new_score > best_score:
-            best_score = new_score
-            best_graph = new_graph
-            best_trial = i
-        times += [("trial " + str(i), round(time.time() - trial_start_time, 3))]
-    times += [("total", round(time.time() - start_time, 3))]
+    # best_graph, best_score = graph, None
+    # best_trial = None
+    # for i in range(restarts):
+    #     trial_start_time = time.time()
+    #     print("running attempt: " + str(i))
+    #     new_graph, new_score = find_graph_given_data(graph.copy(), data, max_parents=max_parents)
+    #     print("new graph:", new_graph.edges)
+    #     print("new score: " + str(new_score))
+    #     if best_score is None or new_score > best_score:
+    #         best_score = new_score
+    #         best_graph = new_graph
+    #         best_trial = i
+    #     times += [("trial " + str(i), round(time.time() - trial_start_time, 3))]
+    # times += [("total", round(time.time() - start_time, 3))]
 
-    write_gph(best_graph, outfile)
-    print(best_graph.edges)
-    print(best_score)
-    print("best graph time", times[best_trial], "total", times[-1])
-    nx.draw_networkx(best_graph, arrows=True)
+    write_gph(graph, outfile)
+    print(graph.edges)
+    print(score)
+    # print("best graph time", times[best_trial], "total", times[-1])
+    nx.draw_networkx(graph, arrows=True)
     plt.show()
+    
+    # write_gph(best_graph, outfile)
+    # print(best_graph.edges)
+    # print(best_score)
+    # print("best graph time", times[best_trial], "total", times[-1])
+    # nx.draw_networkx(best_graph, arrows=True)
+    # plt.show()
     pass
 
 
@@ -214,8 +222,8 @@ def main():
     # outputfilename = sys.argv[2]
     # compute(inputfilename, outputfilename)
     
-    compute("data/medium.csv", "medium.gph", restarts=5, max_parents=None)
-    # compute("data/large.csv", "large.gph", restarts=1, max_parents=2)
+    # compute("data/medium.csv", "medium.gph", restarts=5, max_parents=None)
+    compute("data/small.csv", "small.gph", restarts=1, max_parents=2)
     # compute("example/example.csv", "test.gph", restarts=1, max_parents=2)
 
 
